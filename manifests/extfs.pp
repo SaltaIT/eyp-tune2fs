@@ -6,6 +6,7 @@ define tune2fs::extfs (
                         $reserved_blocks_group='root',
                         $check_interval='0',
                       ) {
+  include ::tune2fs
 
   Exec {
     path => '/bin:/sbin:/usr/bin:/usr/sbin',

@@ -1,5 +1,4 @@
 class tune2fs::params {
-  
   case $::osfamily
   {
     'redhat':

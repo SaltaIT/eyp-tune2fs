@@ -61,7 +61,7 @@ tune2fs::extfs { '/dev/mapper/vg0-root':
 ## Reference
 
 ### class tune2fs
-noop
+validates tune2fs presence
 
 ### define tune2fs::extfs
 manages extfs settings
