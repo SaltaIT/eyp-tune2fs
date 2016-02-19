@@ -51,12 +51,12 @@ tune2fs::extfs { '/dev/mapper/vg0-root':
 ## Usage
 
 ### define tune2fs::extfs
-* dev: device to apply settings (defaults to resource's name)
-* max_mount_count: Adjust the number of mounts after which the filesystem will be checked (defaults to '-1')
-* reserved_blocks: Set the number of reserved filesystem blocks, can also be set as a percentage (defaults to '0')
-* reserved_blocks_user: Set  the user who can use the reserved filesystem blocks (defaults to 'root')
-* reserved_blocks_group: Set  the  group  which  can  use the reserved filesystem blocks (defaults to 'root')
-* check_interval: Adjust the maximal time between two filesystem checks (defaults to '0')
+* **dev**: device to apply settings (defaults to resource's name)
+* **max_mount_count**: Adjust the number of mounts after which the filesystem will be checked (defaults to '-1')
+* **reserved_blocks**: Set the number of reserved filesystem blocks, can also be set as a percentage (defaults to '0')
+* **reserved_blocks_user**: Set  the user who can use the reserved filesystem blocks (defaults to 'root')
+* **reserved_blocks_group**: Set  the  group  which  can  use the reserved filesystem blocks (defaults to 'root')
+* **check_interval**: Adjust the maximal time between two filesystem checks (defaults to '0')
 
 ## Reference
 
