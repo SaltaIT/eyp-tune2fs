@@ -4,9 +4,9 @@
   "author": "eyp",
   "summary": "manages tune2fs attributes on a extfs",
   "license": "Apache-2.0",
-  "source": "https://github.com/AtlasIT-AM/eyp-tune2fs",
+  "source": "https://github.com/NTTCom-MS/eyp-tune2fs",
   "project_page": null,
-  "issues_url": "https://github.com/AtlasIT-AM/eyp-tune2fs/issues",
+  "issues_url": "https://github.com/NTTCom-MS/eyp-tune2fs/issues",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 4.6.0"}
   ]
