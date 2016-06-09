@@ -22,13 +22,19 @@ manages tune2fs attributes on a extfs
 
 ## Module Description
 
-TODO
+manages tune2fs attributes:
+
+* max_mount_count
+* reserved_blocks
+* reserved_blocks_user
+* reserved_blocks_group
+* check_interval
 
 ## Setup
 
 ### What tune2fs affects
 
-TODO
+changes fs settings
 
 ### Setup Requirements
 
@@ -73,7 +79,11 @@ tune2fs full path - used to check it's presence
 
 ## Limitations
 
-TODO
+Tested on:
+* CentOS 5
+* CentOS 6
+* CentOS 7
+* Ubuntu 14.04
 
 ## Development
 
