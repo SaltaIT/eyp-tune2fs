@@ -17,16 +17,19 @@ define tune2fs::extfs (
   exec { "max_mount_count ${dev}":
     command => "tune2fs -c ${max_mount_count} ${dev}",
     unless  => "tune2fs -l ${dev} | grep 'Maximum mount count' | awk '{ print \$NF }' | grep '^${max_mount_count}$'",
+    require => Exec['which tune2fs eyp-tune2fs'],
   }
 
   exec { "reserved_blocks_user ${dev}":
     command => "tune2fs -u ${reserved_blocks_user} ${dev}",
     unless  => "tune2fs -l ${dev} | grep 'Reserved blocks uid' | grep '${reserved_blocks_user}'",
+    require => Exec['which tune2fs eyp-tune2fs'],
   }
 
   exec { "reserved_blocks_group ${dev}":
     command => "tune2fs -g ${reserved_blocks_group} ${dev}",
     unless  => "tune2fs -l ${dev} | grep 'Reserved blocks gid' | grep '${reserved_blocks_group}'",
+    require => Exec['which tune2fs eyp-tune2fs'],
   }
 
   if $reserved_blocks =~ /^ *(\d+) *% *$/
@@ -38,6 +41,7 @@ define tune2fs::extfs (
     exec { "reserved_blocks ${dev}":
       command => "bash -c 'tune2fs -r \"$(($(($(tune2fs -l ${dev} | grep '\"'\"'Block count'\"'\"' | awk '\"'\"'{ print \$NF }'\"'\"')/100))*${reserved_blocks_percent}))\" ${dev}'",
       unless  => "bash -c 'tune2fs -l ${dev} | grep '\"'\"'Reserved block count'\"'\"' | awk '\"'\"'{ print \$NF }'\"'\"' | grep -E \"^$(($(($(tune2fs -l ${dev} | grep '\"'\"'Block count'\"'\"' | awk '\"'\"'{ print \$NF }'\"'\"')/100))*${reserved_blocks_percent}))$\"'",
+      require => Exec['which tune2fs eyp-tune2fs'],
     }
   }
   else
@@ -47,6 +51,7 @@ define tune2fs::extfs (
     exec { "reserved_blocks ${dev}":
       command => "tune2fs -r ${reserved_blocks} ${dev}",
       unless  => "tune2fs -l ${dev} | grep 'Reserved block count' | awk '{ print \$NF }' | grep -E '^${reserved_blocks}$'",
+      require => Exec['which tune2fs eyp-tune2fs'],
     }
   }
 
@@ -55,6 +60,7 @@ define tune2fs::extfs (
   exec { "check_interval ${dev}":
     command => "tune2fs -i ${check_interval}s ${dev}",
     unless  => "tune2fs -l ${dev} | grep 'Check interval' | awk '{ print \$3 }' | grep -E '^${check_interval}$'",
+    require => Exec['which tune2fs eyp-tune2fs'],
   }
 
 }
